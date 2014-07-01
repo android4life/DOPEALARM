@@ -27,7 +27,7 @@ public class CreateAlarm extends Activity {
 	private String name;
 	TextView curtime, enterLabel;
 	EditText label;
-	Button time, save;
+	Button time, save, selectDays;
 	FileIO files;
 
 	@Override
@@ -36,6 +36,15 @@ public class CreateAlarm extends Activity {
 		setContentView(R.layout.activity_clock);
 		files = new FileIO(this);
 		final Calendar c = Calendar.getInstance();
+
+		selectDays = (Button) findViewById(R.id.bSelectDays);
+		selectDays.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent i = new Intent(CreateAlarm.this, DaySelector.class);
+				startActivity(i);
+			}
+		});
 
 		label = (EditText) findViewById(R.id.etLabel);
 		label.setFocusable(true);

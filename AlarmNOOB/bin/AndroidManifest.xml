@@ -30,8 +30,13 @@
             android:label="CreateAlarm" >
         </activity>
         <activity
-            android:name="kesa.hai.DopeAlarm.Clock"
+            android:name="kesa.hai.DopeAlarm.CreateAlarm"
             android:label="AlarmList" >
+        </activity>
+        <activity
+            android:name="kesa.hai.DopeAlarm.DaySelector"
+            android:label="AlarmList"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 
