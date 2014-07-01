@@ -7,12 +7,21 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class SaveData {
+	private static int numberOfAlarms;
+	private static int alarmNumber;
+	private static int alarmHour;
+	private static int alarmMinute;
+
 	public static void load(FileIO files) {
 		BufferedReader in = null;
 		try {
 			in = new BufferedReader(new InputStreamReader(files.readFile(".alarmData")));
-			System.out.println(in.readLine());
-			System.out.println(in.readLine());
+			ListOfAlarms.alarms.clear();
+			numberOfAlarms = Integer.parseInt(in.readLine());
+			for (int i = 0; i < numberOfAlarms; i++) {
+				alarmNumber = Integer.parseInt(in.readLine());
+				alarmHour = Integer.parseInt(in.readLine());
+			}
 		} catch (IOException e) {
 
 		} finally {
@@ -30,9 +39,18 @@ public class SaveData {
 		BufferedWriter out = null;
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(files.writeFile(".alarmData")));
-			out.write("HELLO");
-			out.write("\n");
-			out.write("YESS");
+			out.write(ListOfAlarms.alarms.size());
+			for (int i = 0; i < ListOfAlarms.alarms.size(); i++) {
+				Alarm alarm = ListOfAlarms.alarms.get(i);
+				out.write(alarm.getALARM_NUMBER());
+				out.write("\n");
+				out.write(alarm.getTIME_HOUR());
+				out.write("\n");
+				out.write(alarm.getTIME_MINUTE());
+				out.write("\n");
+				out.write(String.valueOf(alarm.isOn()));
+				out.write("\n");
+			}
 
 		} catch (IOException e) {
 

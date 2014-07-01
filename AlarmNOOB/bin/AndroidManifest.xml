@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="kesa.hai.DopeAlarm.Clock"
+            android:name="kesa.hai.DopeAlarm.AlarmList"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +28,10 @@
         <activity
             android:name="kesa.hai.DopeAlarm.MainActivity"
             android:label="CreateAlarm" >
+        </activity>
+        <activity
+            android:name="kesa.hai.DopeAlarm.Clock"
+            android:label="AlarmList" >
         </activity>
     </application>
 

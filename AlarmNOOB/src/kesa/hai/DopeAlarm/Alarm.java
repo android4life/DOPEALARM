@@ -36,4 +36,12 @@ public class Alarm {
 	public boolean isOn() {
 		return on;
 	}
+
+	public int getALARM_NUMBER() {
+		return ALARM_NUMBER;
+	}
+
+	public void setALARM_NUMBER(int aLARM_NUMBER) {
+		ALARM_NUMBER = aLARM_NUMBER;
+	}
 }

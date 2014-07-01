@@ -2,11 +2,11 @@ package kesa.hai.DopeAlarm;
 
 import java.util.Calendar;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.view.Menu;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -27,8 +27,6 @@ public class Clock extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_clock);
 		files = new FileIO(this);
-		SaveData.save(files);
-		SaveData.load(files);
 		final Calendar c = Calendar.getInstance();
 
 		mHour = c.get(Calendar.HOUR_OF_DAY);
@@ -43,7 +41,9 @@ public class Clock extends Activity {
 			public void onClick(View v) {
 				Alarm alarm = new Alarm(1, hourSelected, minuteSelected, true);
 				ListOfAlarms.add(alarm);
-				System.out.println("ArrayList: " + ListOfAlarms.alarms.size() + " " + ListOfAlarms.alarms.get(0).getTIME_HOUR() + " " + ListOfAlarms.alarms.get(0).getTIME_MINUTE());
+				SaveData.save(files);
+				Intent i = new Intent(Clock.this, AlarmList.class);
+				startActivity(i);
 			}
 		});
 

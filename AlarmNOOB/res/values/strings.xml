@@ -4,5 +4,6 @@
     <string name="app_name">DopeAlarm</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="create_new">Create New</string>
 
 </resources>
