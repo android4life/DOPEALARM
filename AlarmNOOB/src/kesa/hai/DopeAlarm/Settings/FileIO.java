@@ -1,4 +1,4 @@
-package kesa.hai.DopeAlarm;
+package kesa.hai.DopeAlarm.Settings;
 
 import java.io.File;
 import java.io.FileInputStream;

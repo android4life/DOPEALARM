@@ -1,5 +1,9 @@
-package kesa.hai.DopeAlarm;
+package kesa.hai.DopeAlarm.Alarm;
 
+import kesa.hai.DopeAlarm.CreateAlarm;
+import kesa.hai.DopeAlarm.R;
+import kesa.hai.DopeAlarm.Settings.FileIO;
+import kesa.hai.DopeAlarm.Settings.SaveData;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +28,7 @@ public class AlarmList extends Activity {
 		createNew.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent i = new Intent(AlarmList.this, Clock.class);
+				Intent i = new Intent(AlarmList.this, CreateAlarm.class);
 				startActivity(i);
 			}
 		});

@@ -1,16 +1,18 @@
-package kesa.hai.DopeAlarm;
+package kesa.hai.DopeAlarm.Alarm;
 
 public class Alarm {
 	private int ALARM_NUMBER;
 	private int TIME_HOUR;
 	private int TIME_MINUTE;
 	private boolean on;
+	private String name;
 
-	public Alarm(int num, int hour, int minute, boolean on) {
+	public Alarm(int num, String name, int hour, int minute, boolean on) {
 		this.TIME_HOUR = hour;
 		this.TIME_MINUTE = minute;
 		this.on = on;
 		this.ALARM_NUMBER = num;
+		this.name = name;
 	}
 
 	public void setTIME_MINUTE(int tIME_MINUTE) {
@@ -43,5 +45,13 @@ public class Alarm {
 
 	public void setALARM_NUMBER(int aLARM_NUMBER) {
 		ALARM_NUMBER = aLARM_NUMBER;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

@@ -2,6 +2,11 @@ package kesa.hai.DopeAlarm;
 
 import java.util.Calendar;
 
+import kesa.hai.DopeAlarm.Alarm.Alarm;
+import kesa.hai.DopeAlarm.Alarm.AlarmList;
+import kesa.hai.DopeAlarm.Alarm.ListOfAlarms;
+import kesa.hai.DopeAlarm.Settings.FileIO;
+import kesa.hai.DopeAlarm.Settings.SaveData;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -10,15 +15,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class Clock extends Activity {
+public class CreateAlarm extends Activity {
 
 	protected static final int TIME_DIALOG_ID = 1;
 	public int hourSelected, minuteSelected;
 	private int mHour, mMinute;
-	TextView curtime;
+	private String name;
+	TextView curtime, enterLabel;
+	EditText label;
 	Button time, save;
 	FileIO files;
 
@@ -28,6 +36,10 @@ public class Clock extends Activity {
 		setContentView(R.layout.activity_clock);
 		files = new FileIO(this);
 		final Calendar c = Calendar.getInstance();
+
+		label = (EditText) findViewById(R.id.etLabel);
+		label.setFocusable(true);
+		enterLabel = (TextView) findViewById(R.id.tvName);
 
 		mHour = c.get(Calendar.HOUR_OF_DAY);
 		mMinute = c.get(Calendar.MINUTE);
@@ -39,10 +51,11 @@ public class Clock extends Activity {
 		save.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Alarm alarm = new Alarm(1, hourSelected, minuteSelected, true);
+				name = label.getText().toString();
+				Alarm alarm = new Alarm(1, name, hourSelected, minuteSelected, true);
 				ListOfAlarms.add(alarm);
 				SaveData.save(files);
-				Intent i = new Intent(Clock.this, AlarmList.class);
+				Intent i = new Intent(CreateAlarm.this, AlarmList.class);
 				startActivity(i);
 			}
 		});

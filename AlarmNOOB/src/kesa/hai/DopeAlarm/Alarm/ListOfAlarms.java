@@ -1,4 +1,4 @@
-package kesa.hai.DopeAlarm;
+package kesa.hai.DopeAlarm.Alarm;
 
 import java.util.ArrayList;
 
